@@ -1,0 +1,268 @@
+{
+  "test_cases": [
+    {
+      "name": "场景分支1-基准分支-正常交易",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:8080/api/creditcard/transferPay/V1",
+        "headers": {
+          "Content-Type": "application/json",
+          "X-Request-App": "ICBC_TestAgent",
+          "X-Request-Id": "req_base_001"
+        },
+        "body": {
+          "chk_name_flag": "1",
+          "person_name": "John Zhang",
+          "transfer_amount": 1.00,
+          "fee_type": "0",
+          "transfer_currency_type": "0",
+          "transfer_currency": 156,
+          "chk_local_flag": "1",
+          "over_flag": "1",
+          "counterParams": {
+            "counter_account": "6226220000000001"
+          },
+          "cardChkParams": {
+            "card_no": "6226220000000000",
+            "card_pin_chk_flag": "0"
+          },
+          "infoParams": {
+            "trx_zoneno": 200,
+            "trx_workdate": "2025-07-26",
+            "trx_time": "15:30:00"
+          },
+          "cerChkParams": {
+            "cer_chk": "0"
+          }
+        }
+      }
+    },
+    {
+      "name": "场景分支2-异地交易",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:8080/api/creditcard/transferPay/V1",
+        "headers": {
+          "Content-Type": "application/json",
+          "X-Request-App": "ICBC_TestAgent",
+          "X-Request-Id": "req_remote_001"
+        },
+        "body": {
+          "chk_name_flag": "1",
+          "person_name": "Mike Li",
+          "transfer_amount": 1.00,
+          "fee_type": "0",
+          "transfer_currency_type": "0",
+          "transfer_currency": 156,
+          "chk_local_flag": "1",
+          "over_flag": "1",
+          "counterParams": {
+            "counter_account": "6226220000000000"
+          },
+          "cardChkParams": {
+            "card_no": "6226220000000001",
+            "card_pin_chk_flag": "0"
+          },
+          "infoParams": {
+            "trx_zoneno": 200,
+            "trx_workdate": "2025-07-26",
+            "trx_time": "15:30:00"
+          },
+          "cerChkParams": {
+            "cer_chk": "0"
+          }
+        }
+      }
+    },
+    {
+      "name": "场景分支3-外币交易",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:8080/api/creditcard/transferPay/V1",
+        "headers": {
+          "Content-Type": "application/json",
+          "X-Request-App": "ICBC_TestAgent",
+          "X-Request-Id": "req_foreign_001"
+        },
+        "body": {
+          "chk_name_flag": "1",
+          "person_name": "Sun Ba",
+          "transfer_amount": 1.00,
+          "fee_type": "0",
+          "transfer_currency_type": "1",
+          "transfer_currency": 840,
+          "chk_local_flag": "1",
+          "over_flag": "1",
+          "counterParams": {
+            "counter_account": "6226220000000000"
+          },
+          "cardChkParams": {
+            "card_no": "6226220000000005",
+            "card_pin_chk_flag": "0"
+          },
+          "infoParams": {
+            "trx_zoneno": 200,
+            "trx_workdate": "2025-07-26",
+            "trx_time": "15:30:00"
+          },
+          "cerChkParams": {
+            "cer_chk": "0"
+          }
+        }
+      }
+    },
+    {
+      "name": "场景分支4-收取手续费分支",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:8080/api/creditcard/transferPay/V1",
+        "headers": {
+          "Content-Type": "application/json",
+          "X-Request-App": "ICBC_TestAgent",
+          "X-Request-Id": "req_fee_001"
+        },
+        "body": {
+          "chk_name_flag": "1",
+          "person_name": "Mike Li",
+          "transfer_amount": 10.00,
+          "fee_type": "1",
+          "transfer_currency_type": "0",
+          "transfer_currency": 156,
+          "chk_local_flag": "1",
+          "over_flag": "1",
+          "counterParams": {
+            "counter_account": "6226220000000000"
+          },
+          "cardChkParams": {
+            "card_no": "6226220000000001",
+            "card_pin_chk_flag": "0"
+          },
+          "infoParams": {
+            "trx_zoneno": 200,
+            "trx_workdate": "2025-07-26",
+            "trx_time": "15:30:00"
+          },
+          "cerChkParams": {
+            "cer_chk": "0"
+          }
+        }
+      }
+    },
+    {
+      "name": "场景分支5-不透支场景分支",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:8080/api/creditcard/transferPay/V1",
+        "headers": {
+          "Content-Type": "application/json",
+          "X-Request-App": "ICBC_TestAgent",
+          "X-Request-Id": "req_no_overdraft_001"
+        },
+        "body": {
+          "chk_name_flag": "1",
+          "person_name": "Zhao Liu",
+          "transfer_amount": 1.00,
+          "fee_type": "0",
+          "transfer_currency_type": "0",
+          "transfer_currency": 156,
+          "chk_local_flag": "1",
+          "over_flag": "0",
+          "counterParams": {
+            "counter_account": "6226220000000000"
+          },
+          "cardChkParams": {
+            "card_no": "6226220000000003",
+            "card_pin_chk_flag": "0"
+          },
+          "infoParams": {
+            "trx_zoneno": 400,
+            "trx_workdate": "2025-07-26",
+            "trx_time": "15:30:00"
+          },
+          "cerChkParams": {
+            "cer_chk": "0"
+          }
+        }
+      }
+    },
+    {
+      "name": "场景分支6-卡检查分支",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:8080/api/creditcard/transferPay/V1",
+        "headers": {
+          "Content-Type": "application/json",
+          "X-Request-App": "ICBC_TestAgent",
+          "X-Request-Id": "req_card_check_001"
+        },
+        "body": {
+          "chk_name_flag": "1",
+          "person_name": "John Zhang",
+          "transfer_amount": 1.00,
+          "fee_type": "0",
+          "transfer_currency_type": "0",
+          "transfer_currency": 156,
+          "chk_local_flag": "1",
+          "over_flag": "1",
+          "counterParams": {
+            "counter_account": "6226220000000001"
+          },
+          "cardChkParams": {
+            "card_no": "6226220000000000",
+            "card_pin_chk_flag": "1",
+            "card_pin": "123456",
+            "card_expired_flag": "1",
+            "card_expired_date": "202701"
+          },
+          "infoParams": {
+            "trx_zoneno": 200,
+            "trx_workdate": "2025-07-26",
+            "trx_time": "15:30:00"
+          },
+          "cerChkParams": {
+            "cer_chk": "0"
+          }
+        }
+      }
+    },
+    {
+      "name": "场景分支7-客户身份检查分支",
+      "request": {
+        "method": "POST",
+        "url": "http://localhost:8080/api/creditcard/transferPay/V1",
+        "headers": {
+          "Content-Type": "application/json",
+          "X-Request-App": "ICBC_TestAgent",
+          "X-Request-Id": "req_identity_check_001"
+        },
+        "body": {
+          "chk_name_flag": "1",
+          "person_name": "John Zhang",
+          "transfer_amount": 1.00,
+          "fee_type": "0",
+          "transfer_currency_type": "0",
+          "transfer_currency": 156,
+          "chk_local_flag": "1",
+          "over_flag": "1",
+          "counterParams": {
+            "counter_account": "6226220000000001"
+          },
+          "cardChkParams": {
+            "card_no": "6226220000000000",
+            "card_pin_chk_flag": "0"
+          },
+          "infoParams": {
+            "trx_zoneno": 200,
+            "trx_workdate": "2025-07-26",
+            "trx_time": "15:30:00"
+          },
+          "cerChkParams": {
+            "cer_chk": "1",
+            "cer_type": "0",
+            "cer_no": "441323200001010098"
+          }
+        }
+      }
+    }
+  ]
+}

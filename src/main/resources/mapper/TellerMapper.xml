@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.loxie.tested_project.repository.TellerRepository">
+
+    <select id="findBySsicTypeAndSsicId" resultType="com.loxie.tested_project.entity.TellerEntity">
+        SELECT * FROM teller_info WHERE ssic_type = #{ssicType} AND ssic_id = #{ssicId}
+    </select>
+
+    <select id="findBySsicId" resultType="com.loxie.tested_project.entity.TellerEntity">
+        SELECT * FROM teller_info WHERE ssic_id = #{ssicId}
+    </select>
+
+    <select id="findByUsername" resultType="com.loxie.tested_project.entity.TellerEntity">
+        SELECT * FROM teller_info WHERE username = #{username}
+    </select>
+
+    <select id="findByEmail" resultType="com.loxie.tested_project.entity.TellerEntity">
+        SELECT * FROM teller_info WHERE email = #{email}
+    </select>
+
+    <select id="findByPhone" resultType="com.loxie.tested_project.entity.TellerEntity">
+        SELECT * FROM teller_info WHERE phone = #{phone}
+    </select>
+
+</mapper>

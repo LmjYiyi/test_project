@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.loxie.tested_project.repository.CreditCardAccountMapper">
+    <update id="updateAccountBalance" parameterType="com.loxie.tested_project.entity.CreditCardAccount">
+        UPDATE credit_card_account
+        SET usable_amount = #{usableAmount},
+            over_amount = #{overAmount}
+        WHERE card_no = #{cardNo}
+    </update>
+</mapper>
