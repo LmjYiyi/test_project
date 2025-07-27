@@ -32,3 +32,42 @@ INSERT INTO credit_card_account (card_no, person_name, usable_amount, over_amoun
 ('6226220000000008', 'Zheng Shiyi', 10.00, 0.00, '777777', '202407', '1', 'P123456789012345678', 200, '1'), -- 低余额卡
 ('6226220000000009', 'Wang Shier', 5000.00, 0.00, '888888', '202612', '0', '441323197803030077', 700, '1'), -- 高余额卡
 ('6226220000000010', 'Feng Shisan', 100.00, 0.00, '999999', '202303', '0', '441323199504040066', 200, '1'); -- 即将过期卡
+
+
+
+-- auto-generated definition
+create table teller_info
+(
+    id          bigint auto_increment
+        primary key,
+    ssic_id     varchar(50)  not null comment '认证号',
+    ssic_type   varchar(10)  not null comment '认证类型：1-统一认证号，2-身份证，3-香港身份证',
+    username    varchar(100) null comment '用户名',
+    email       varchar(100) null comment '邮箱',
+    phone       varchar(20)  null comment '手机号',
+    status      varchar(10)  null comment '状态',
+    create_time datetime     null comment '创建时间',
+    update_time datetime     null comment '更新时间',
+    field1      varchar(255) null comment '字段1',
+    sub_field1  int          null comment '子字段1',
+    sub_field2  tinyint(1)   null comment '子字段2',
+    field3      varchar(255) null comment '字段3',
+    constraint uk_ssic_id_type
+        unique (ssic_id, ssic_type)
+);
+
+INSERT INTO teller_info (id, ssic_id, ssic_type, username, email, phone, status, create_time, update_time, field1, sub_field1, sub_field2, field3) 
+VALUES 
+(1, '123456789', '1', 'zhangsan', 'zhangsan@example.com', '13800138001', '1', '2025-07-15 11:03:46', '2025-07-15 11:03:46', '统一认证用户-123456789', 101, 1, '服务站点: 总行'),
+
+(2, '987654321', '1', 'lisi', 'lisi@example.com', '13800138002', '1', '2025-07-15 11:03:46', '2025-07-15 11:03:46', '统一认证用户-987654321', 102, 1, '服务站点: 分行'),
+
+(4, '110101199002022345', '2', 'zhaoliu', 'zhaoliu@example.com', '13800138004', '1', '2025-07-15 11:03:46', '2025-07-15 11:03:46', '身份证用户-110101199002022345', 202, 0, '服务站点: 网点'),
+
+(5, 'A123456(7)', '3', 'chenqi', 'chenqi@example.com', '13800138005', '1', '2025-07-15 11:03:46', '2025-07-15 11:03:46', '香港身份证用户-A123456(7)', 301, 1, '服务站点: 香港分行'),
+
+(6, 'B234567(8)', '3', 'liuba', 'liuba@example.com', '13800138006', '1', '2025-07-15 11:03:46', '2025-07-15 11:03:46', '香港身份证用户-B234567(8)', 302, 1, '服务站点: 香港支行'),
+
+(13, '110101199001011234', '2', 'wangwu', 'wangwu@example.com', '13800138003', '1', '2025-07-24 09:33:29', '2025-07-24 10:33:34', '身份证用户-110101199001011234', 0, 0, '服务站点: 支行');
+
+
